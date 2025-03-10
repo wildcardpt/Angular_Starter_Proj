@@ -7,14 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class PythonApiServiceService {
   private apiUrl = 'http://localhost:5000/api';
+  
 
   constructor(private http: HttpClient) { }
 
-  getExams(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/exams`);
+  getTasks(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/tasks`);
   }
 
-  createExam(exam: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/exams`, exam);
+  addTask(task: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/tasks`, task);
+  }
+
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/tasks/${id}`);
   }
 }
