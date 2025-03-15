@@ -27,6 +27,8 @@ export class TodoListComponent {
 
   addTask(): void {
     const newTask = { id: Date.now(), title: this.newTaskTitle };
+    if(this.newTaskTitle == null || this.newTaskTitle == undefined || this.newTaskTitle === "")
+      return console.log("Empty task");
     this.taskService.addTask(newTask).subscribe(() => {
       this.tasks.push(newTask);
       this.newTaskTitle = '';

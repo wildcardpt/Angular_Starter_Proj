@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less"
+          "style": "scss"
         }
       },
       "root": "",
@@ -32,9 +32,11 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.scss",
+              "scss/custom.scss",
+              "scss/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
           "configurations": {
             "production": {
